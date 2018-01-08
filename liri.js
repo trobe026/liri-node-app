@@ -1,11 +1,23 @@
 'use strict';
 
+// requiring necessary modules
 var dotenv = require("dotenv").config();
 var Twitter = require('twitter');
 var Spotify = require('node-spotify-api');
 var request = require('request');
 var keys = require('./keys.js');
 var fs = require("fs");
+var log = require('simple-node-logger').createSimpleLogger('log.txt');
+var util = require('util');
+
+// change console.log to write to log.txt file and process.stdout
+var log_file = fs.createWriteStream(__dirname + '/log.txt', {flags : 'a+'});
+var log_stdout = process.stdout;
+console.log = function(d) {
+  log_file.write(util.format(d) + '\n');
+  log_stdout.write(util.format(d) + '\n');
+};
+
 
 var spotify = new Spotify(keys.spotify);
 var client = new Twitter(keys.twitter);
@@ -21,7 +33,7 @@ function runCommand() {
         }
         for (var i = 0; i < tweets.length; i++) {
           tweets.reverse();
-          console.log((i + 1) + '.')
+          console.log((i + 1) + '.');
           console.log(tweets[i].created_at);
           console.log(tweets[i].text + '\n');
         }
@@ -82,6 +94,7 @@ function runCommand() {
     break;
   }
 }
+// separate 4th liri option
   if (process.argv[2] === 'do-what-it-says') {
     fs.readFile("random.txt", "utf8", function(err, data) {
       if (err) {
@@ -95,4 +108,4 @@ function runCommand() {
     });
   }
 
-  runCommand();
+runCommand();
