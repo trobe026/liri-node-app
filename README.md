@@ -16,24 +16,24 @@
 
 ## Commands:
 
-* node liri my-tweets
+* **node liri my-tweets**
 
   * Returns the tweets, up to 20, of the twitter account which belongs to the specified API key.
 
-* node liri spotify-this-song (song name)
+* **node liri spotify-this-song (song name)**
 
   * Returns information for first 5 Spotify results for song entered.
 
-* node liri movie-this (movie name)
+* **node liri movie-this (movie name)**
 
   * Returns information for movie entered from OMDB.
 
-* node liri do-what-it-says
+* **node liri do-what-it-says**
 
   * This command will take in parameters specified in the random.txt file. These parameters can be changed to any of the available 5.
 
-* node liri erase-log
+* **node liri erase-log**
 
   * Displays a confirmation message to erase "log.txt" file.  If yes, clears file and displays success message in console.
 
-#### Additionally, node http.js can be ran to start a node server on port 8080. Start the server and navigate to http://localhost:8080 to view current state of log.txt.  Currently any changes to log.txt can only be viewed by refreshing the page.
+#### Additionally, "node http.js" can be ran to start a node server on port 8080. Start the server and navigate to http://localhost:8080 to view current state of log.txt.  Currently any changes to log.txt can only be viewed by refreshing the page.
