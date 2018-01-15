@@ -9,6 +9,7 @@ var keys = require('./keys.js');
 var fs = require("fs");
 var log = require('simple-node-logger').createSimpleLogger('log.txt');
 var util = require('util');
+var inquirer = require("inquirer");
 
 // change console.log to write to log.txt file and process.stdout
 var log_file = fs.createWriteStream(__dirname + '/log.txt', {flags : 'a+'});
@@ -50,18 +51,23 @@ function runCommand() {
     }
       spotify.search({ type: 'track', query: songName, limit: 5 }, function(err, data) {
         if (err) {
-          return console.log('Error occurred: ' + err);
+          console.log('Error occurred: ' + err);
+          return;
         }
         data.tracks.items.forEach(function(index, value) {
-          console.log("Artist(s): ");
-          console.log(data.tracks.items[value].album.artists[0].name + '\n');
-          console.log("Song Name: ");
-          console.log(data.tracks.items[value].name + '\n');
-          console.log("Song Preview Link: ");
-          console.log(data.tracks.items[value].preview_url + '\n');
-          console.log("Album Name: ");
-          console.log(data.tracks.items[value].album.name);
-          console.log("__________________________________________________________________");
+            console.log("Artist(s): ");
+            console.log(data.tracks.items[value].album.artists[0].name + '\n');
+            console.log("Song Name: ");
+            console.log(data.tracks.items[value].name + '\n');
+            console.log("Song Preview Link: ");
+            if (data.tracks.items[value].preview_url === null) {
+              console.log("Not Available for this song.\n");
+            } else {
+              console.log(data.tracks.items[value].preview_url + '\n');
+            }
+            console.log("Album Name: ");
+            console.log(data.tracks.items[value].album.name);
+            console.log("__________________________________________________________________");
         });
       });
       break;
@@ -76,6 +82,9 @@ function runCommand() {
     }
     request("http://www.omdbapi.com/?t=" + movieName + "&y=&plot=short&apikey=trilogy", function(error, response, body) {
       if (!error && response.statusCode === 200) {
+        if (JSON.parse(body).Title === undefined) {
+          return console.log("\nInvalid movie selection, or movie does not exist in database, please try again.\n");
+        }
         console.log('\n' + "Movie Title: " + JSON.parse(body).Title + '\n');
         console.log("Release date: " + JSON.parse(body).Released + '\n');
         console.log("IMDB Rating: " + JSON.parse(body).Ratings[0].Value + '\n');
@@ -106,6 +115,31 @@ function runCommand() {
       command = process.argv[2];
       runCommand();
     });
+  }
+  if (process.argv[2] === 'erase-log') {
+    function eraseLog() {
+      inquirer.prompt([
+        {
+          name: "confirm",
+          type: "confirm",
+          message: "This will clear entire contents of log.txt - Are you sure?"
+        }
+      ]).then(function(answer) {
+        if (answer.confirm === true) {
+          fs.writeFile(
+          "log.txt",
+          "",
+          {
+              encoding: "utf-8",
+              flag: "w"
+          },
+          function() {
+            log_stdout.write(util.format("Log has been cleared") + '\n');
+          })
+        }
+      });
+    }
+    eraseLog();
   }
 
 runCommand();
