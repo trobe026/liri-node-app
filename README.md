@@ -1,6 +1,6 @@
 # Liri App
 
-### A command line node app which takes in parameters and returns data from either Twitter, Spotify, or OMDB.
+### A command line node app which takes in parameters and returns data from Twitter, Spotify, or OMDB.
 
 #### Liri takes in 5 possible parameters, *"my-tweets"*, *"spotify-this-song"*, *"movie-this"*, *"do-what-it-says"*, or *"erase-log"*.
 #### Run Liri by entering "node-liri" followed by one of the above parameters in the command line.
