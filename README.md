@@ -2,9 +2,9 @@
 
 ### A command line node app which takes in parameters and returns data from either Twitter, Spotify, or OMDB.
 
-#### The app takes in 5 possible parameters, *"my-tweets"*, *"spotify-this-song"*, *"movie-this"*, *"do-what-it-says"*, or *"erase-log"*.
-#### Run the app by entering "node-liri" followed by one of the above parameters on the command line.
-#### The app uses account specific Twitter and Spotify API keys which must be stored in a .env file, and are being accessed by the keys.js file via the dotenv module.  To run this app, you must supply your own API keys in a .env file. The .env file should appear as so:
+#### Liri takes in 5 possible parameters, *"my-tweets"*, *"spotify-this-song"*, *"movie-this"*, *"do-what-it-says"*, or *"erase-log"*.
+#### Run Liri by entering "node-liri" followed by one of the above parameters in the command line.
+#### This app uses account specific Twitter and Spotify API keys which must be stored in a .env file, and are being accessed by the keys.js file via the dotenv module.  To run this app, you must supply your own API keys in a .env file. The .env file should appear as so:
 ###### SPOTIFY_ID=your-spotify-id
 ###### SPOTIFY_SECRET=your-spotify-secret
 ###### TWITTER_CONSUMER_KEY=your-twitter-consumer-key
@@ -19,7 +19,7 @@
 
 * **node liri my-tweets**
 
-  * Returns the tweets, up to 20, of the twitter account which belongs to the specified API key.
+  * Returns the most recent tweets, up to 20, of the twitter account which belongs to the specified API key.
 
 * **node liri spotify-this-song (song name)**
 
@@ -31,10 +31,10 @@
 
 * **node liri do-what-it-says**
 
-  * This command will take in parameters specified in the random.txt file. These parameters can be changed to any of the available 5.
+  * This command will take in parameters specified in the "random.txt" file. These parameters can be changed to any of the available 5.
 
 * **node liri erase-log**
 
-  * Displays a confirmation message to erase "log.txt" file.  If yes, clears file and displays a message in console if successful.
+  * Displays a confirm message to clear the "log.txt" file.  If yes, clears file and displays a message in console if successful.
 
-#### Additionally, "node http.js" can be ran to start a node server on port 8080. Start the server and navigate to http://localhost:8080 to view current state of log.txt.  Currently any changes to log.txt can only be viewed by refreshing the page.
+#### Additionally, "node http" can be ran in the command line to start a node server on port 8080. Start the server and navigate to http://localhost:8080 to view current state of log.txt.  Currently any subsequent changes to log.txt can only be viewed by refreshing the page.
