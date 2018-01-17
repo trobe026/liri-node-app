@@ -31,7 +31,7 @@
 
 * **node liri do-what-it-says**
 
-  * This command will take in parameters specified in the "random.txt" file. These parameters can be changed to any of the available 5.
+  * This command will take in parameters specified in the "random.txt" file. These parameters can be changed to any of the remaining 4.
 
 * **node liri erase-log**
 
