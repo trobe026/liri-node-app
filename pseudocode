@@ -1,0 +1,13 @@
+Turn Liri into full stack App
+
+Liri allows search of personal twitter acct(check on server side allowing more?) spotify song api imdb, and a random command
+
+1. Create front end. Liri jumbotron, form and field section labeled for each function, search twitter search spotify etc, depending on search results will be appended on page below in clean format.
+
+2. Create API call routes.  Convert client side API calls to server side using the same id/tokens, data will be returned on hit of specified endpoint.
+
+3. Create API routes for sending data to client side in the .js files. Ajax calls will trigger end point which will send request to API url. JSON returned data will be parsed and put into a table via rows created by a for loop (switch statement or $each?)
+
+4. Create database models.  Create modelname.js files for tables to store user data(artist, title, song previews?) and username
+
+5. experiment with passport for user credentials, also offer facebook signin

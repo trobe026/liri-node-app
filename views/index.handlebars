@@ -1,0 +1,108 @@
+<div class="container">
+  <div class="row">
+    <div class='jumbotron'>
+      <h1>Liri</h1>
+      <p>Language Interpretation and Recognition Interface</p>
+    </div>
+  </div>
+  <div class="row">
+      <h2>Pick a Command!</h2>
+      <div class="col-xs-6">
+        <div class="panel panel-primary">
+          <div class="panel-heading">
+            <h3>IMDB Lookup</h3>
+          </div>
+          <div class="panel-body">
+              <div class="form-group">
+                <label for="movieName">Movie Name:</label>
+                <input type="text" class="form-control" id='movieName'>
+              </div>
+              <div class="form-group">
+                <label for="relYear">Release Year:</label>
+                <input type="text" class="form-control" id='relYear'>
+              </div>
+              <label for="dataType">(Optional) Filter results by:</label>
+              <div class="radio">
+                <label class='radio-inline'>
+                  <input type="radio" name="dataType">Movie
+                </label>
+                <label class='radio-inline'>
+                  <input type="radio" name="dataType">Series
+                </label>
+                <label class='radio-inline'>
+                  <input type="radio" name="dataType">Episode
+                </label>
+              </div>
+              <button type="submit" class="btn btn-primary submit">Submit</button>
+          </div>
+        </div>
+      </div>
+    <div class="col-xs-6">
+      <div class="panel panel-warning">
+        <div class="panel-heading">
+          <h3>Display Tweets</h3>
+        </div>
+        <div class="panel-body">
+          <div class="form-group">
+            <label for="tweets">Enter Your Twitter Username:</label>
+            <input type="text" class="form-control" id='tweets'>
+          </div>
+          <button type="submit" class='btn btn-warning'>Submit</button>
+        </div>
+      </div>
+    </div>
+  </div>
+  <div class="row">
+    <div class="col-xs-6">
+      <div class="panel panel-success">
+        <div class="panel-heading">
+          <h3>Spotify Search</h3>
+        </div>
+        <div class="panel-body">
+          <div class="form-group">
+            <label for="songName">Song Name:</label>
+            <input type="text" class='form-control' id='songName'>
+          </div>
+          <div class="form-group">
+            <label for="artistName">Artist Name:</label>
+            <input type="text" class='form-control' id='artistName'>
+          </div>
+          <div class="form-group">
+            <label for="albumName">Album Name:</label>
+            <input type="text" class='form-control' id='albumName'>
+          </div>
+          <div class="form-group">
+            <label for="genre">Genre:</label>
+            <input type="text" class='form-control' id='genre'>
+          </div>
+          <div class="form-group">
+            <label for="songYear">Release Year:</label>
+            <input type="text" class='form-control' id='songYear'>
+          </div>
+          <button type="button" class="btn btn-success">Submit</button>
+        </div>
+      </div>
+    </div>
+    <div class="col-xs-6">
+      <div class="panel panel-info">
+        <div class="panel-heading">
+          <h3>Random</h3>
+        </div>
+        <div class="panel-body">
+          <div class="form-group">
+            <label for="randMovie"></label>
+              <button type="submit" class="btn btn-info">Find a Random Movie!</button>
+          </div>
+          <div class="form-group">
+            <label for="randSong"></label>
+              <button type="submit" class="btn btn-info">Find a Random Song!</button>
+          </div>
+          <div class="form-group">
+            <label for="randTweet"></label>
+              <button type="submit" class="btn btn-info">Find a Random Tweet!</button>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>

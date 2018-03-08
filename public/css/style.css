@@ -1,0 +1,11 @@
+/* body {
+  text-align: center;
+} */
+
+.jumbotron {
+  background-color: teal;
+}
+
+.row:not(:first-child) {
+  text-align: center;
+}
