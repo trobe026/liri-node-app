@@ -1,5 +1,14 @@
 $('.btn-primary').on('click', function() {
-  $.get("api/movies", function(req, res) {
-    console.log(res);
+  event.preventDefault();
+  // console.log('test')
+
+  var choice = {
+    movieName: $('#movieName').val().trim(),
+    relYear: $('#relYear').val().trim()
+  };
+
+  console.log(choice)
+  $.get("/api/", choice, function(data) {
+    console.log(data);
   });
 });
